@@ -1,3 +1,4 @@
+
 const shows = [
   {
     title: "Человек без свойств",
@@ -46,7 +47,7 @@ posterTrack.innerHTML = shows
     `
   )
   .join("");
-
+main
 const prevButton = document.querySelector(".carousel-control.prev");
 const nextButton = document.querySelector(".carousel-control.next");
 
