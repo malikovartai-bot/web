@@ -1,4 +1,3 @@
-
 const shows = [
   {
     title: "Человек без свойств",
@@ -31,6 +30,12 @@ const shows = [
 ];
 
 const posterTrack = document.getElementById("poster-track");
+const seasonYear = document.getElementById("season-year");
+
+if (seasonYear) {
+  const currentYear = new Date().getFullYear();
+  seasonYear.textContent = currentYear;
+}
 
 posterTrack.innerHTML = shows
   .map(
@@ -47,7 +52,6 @@ posterTrack.innerHTML = shows
     `
   )
   .join("");
-main
 const prevButton = document.querySelector(".carousel-control.prev");
 const nextButton = document.querySelector(".carousel-control.next");
 
