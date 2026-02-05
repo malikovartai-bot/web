@@ -1,4 +1,4 @@
-const posterTrack = document.getElementById("poster-track");
+const posterTrack = document.getElementById("poster-track")
 const seasonYear = document.getElementById("season-year");
 const seasonYearFooter = document.getElementById("season-year-footer");
 
