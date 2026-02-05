@@ -31,34 +31,49 @@ const shows = [
 
 const posterTrack = document.getElementById("poster-track");
 const seasonYear = document.getElementById("season-year");
+const seasonYearFooter = document.getElementById("season-year-footer");
 
 if (seasonYear) {
   const currentYear = new Date().getFullYear();
   seasonYear.textContent = currentYear;
 }
 
-posterTrack.innerHTML = shows
-  .map(
-    (show) => `
-      <article class="poster-card">
-        <img src="${show.image}" alt="${show.title}" />
-        <span class="date">${show.date}</span>
-        <h3>${show.title}</h3>
-        <div class="poster-actions">
-          <a class="primary-button" href="${show.link}" target="_blank" rel="noreferrer">Купить билет</a>
-          <button class="secondary-button" type="button">Подробнее</button>
-        </div>
-      </article>
-    `
-  )
-  .join("");
+if (seasonYearFooter) {
+  const currentYear = new Date().getFullYear();
+  seasonYearFooter.textContent = currentYear;
+}
+
+if (posterTrack) {
+  posterTrack.innerHTML = shows
+    .map(
+      (show) => `
+        <article class="poster-card">
+          <img src="${show.image}" alt="${show.title}" />
+          <span class="date">${show.date}</span>
+          <h3>${show.title}</h3>
+          <div class="poster-actions">
+            <a class="primary-button" href="${show.link}" target="_blank" rel="noreferrer">Купить билет</a>
+            <button class="secondary-button" type="button">Подробнее</button>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+}
+
 const prevButton = document.querySelector(".carousel-control.prev");
 const nextButton = document.querySelector(".carousel-control.next");
 
 const scrollByCard = (direction) => {
+  if (!posterTrack) return;
   const cardWidth = posterTrack.querySelector(".poster-card")?.offsetWidth || 260;
   posterTrack.scrollBy({ left: direction * (cardWidth + 24), behavior: "smooth" });
 };
 
-prevButton.addEventListener("click", () => scrollByCard(-1));
-nextButton.addEventListener("click", () => scrollByCard(1));
+if (prevButton) {
+  prevButton.addEventListener("click", () => scrollByCard(-1));
+}
+
+if (nextButton) {
+  nextButton.addEventListener("click", () => scrollByCard(1));
+}
