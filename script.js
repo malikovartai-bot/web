@@ -66,6 +66,7 @@ const fetchShows = async () => {
     }
     renderShows(shows);
   } catch (error) {
+    console.error("Intickets shows load failed:", error);
     renderShows([]);
   }
 };
