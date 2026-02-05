@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Покупка билета — AMMA Театр</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --black: #0b0b0c;
+        --white: #f5f5f5;
+        --gold: #d7b26d;
+        --muted: #b8b8b8;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Helvetica Neue", "Segoe UI", sans-serif;
+        background: var(--black);
+        color: var(--white);
+        padding: 40px 6vw 80px;
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+
+      .buy-header {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .buy-header h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+
+      .meta {
+        color: var(--muted);
+      }
+
+      .iframe-wrap {
+        margin-top: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      iframe {
+        width: 100%;
+        height: 720px;
+        border: 0;
+        background: #111;
+      }
+
+      .buy-links {
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="buy-header">
+      <p class="meta">AMMA Театр · Настоящий театр</p>
+      <h1 id="show-title">Загрузка...</h1>
+      <p id="show-meta" class="meta"></p>
+    </section>
+
+    <div class="iframe-wrap">
+      <iframe id="intickets-frame" title="Покупка билета"></iframe>
+    </div>
+
+    <div class="buy-links">
+      <a id="open-external" target="_blank" rel="noreferrer">Открыть покупку в новом окне →</a>
+    </div>
+
+    <script src="buy.js"></script>
+  </body>
+</html>
