@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMMA Театр</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --black: #0b0b0c;
+        --white: #f5f5f5;
+        --gold: #d7b26d;
+        --muted: #b8b8b8;
+        --card: #141418;
+        --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Helvetica Neue", "Segoe UI", sans-serif;
+        background: var(--black);
+        color: var(--white);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 24px 6vw;
+        background: rgba(11, 11, 12, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .logo {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+      }
+
+      .logo-a {
+        font-size: 2.6rem;
+      }
+
+      .logo-mm {
+        font-size: 2rem;
+      }
+
+      .logo-text {
+        font-size: 1.1rem;
+        letter-spacing: 0.2em;
+        color: var(--muted);
+      }
+
+      .logo-tagline {
+        font-size: 1.2rem;
+        color: var(--gold);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        padding: 60px 6vw 120px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .hero-info h1 {
+        font-size: clamp(3rem, 6vw, 5rem);
+        line-height: 1.1;
+      }
+
+      .hero-info h2 {
+        font-size: clamp(1.6rem, 3vw, 2.6rem);
+        font-weight: 400;
+        color: var(--gold);
+      }
+
+      .hero-banner {
+        width: 100%;
+        min-height: 360px;
+        border-radius: 32px;
+        background-image: linear-gradient(180deg, rgba(11, 11, 12, 0.15), rgba(11, 11, 12, 0.8)),
+          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='720'><rect width='1200' height='720' fill='%23141418'/><rect x='120' y='120' width='960' height='480' fill='%230b0b0c'/><circle cx='600' cy='360' r='220' fill='%23d7b26d' opacity='0.35'/></svg>");
+        background-size: cover;
+        background-position: center;
+        box-shadow: var(--shadow);
+      }
+
+      .primary-button {
+        align-self: center;
+        background: var(--gold);
+        color: var(--black);
+        padding: 14px 36px;
+        border-radius: 999px;
+        border: 1px solid var(--gold);
+        transition: background 0.2s ease, color 0.2s ease;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .primary-button:hover,
+      .primary-button:focus {
+        background: transparent;
+        color: var(--gold);
+      }
+
+      .section-heading {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 40px;
+        max-width: 620px;
+      }
+
+      .poster-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+
+      .poster-card,
+      .trust-card {
+        background: var(--card);
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .poster-card {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .poster-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+
+      .poster-card .date {
+        font-weight: 600;
+        color: var(--gold);
+      }
+
+      .poster-card .venue {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .poster-card .poster-actions {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .secondary-button {
+        padding: 8px 18px;
+        border-radius: 999px;
+        border: 1px solid var(--gold);
+        background: transparent;
+        font-size: 0.9rem;
+        color: var(--gold);
+      }
+
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .trust-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 16px;
+        margin-bottom: 16px;
+      }
+
+      .review-grid {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .review-card {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 20px;
+        background: rgba(20, 20, 24, 0.6);
+      }
+
+      .review-card span {
+        display: block;
+        margin-top: 12px;
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+
+      .site-footer {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        padding: 40px 6vw;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: #0f0f12;
+      }
+
+      @media (max-width: 960px) {
+        .hero-banner {
+          min-height: 300px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        main {
+          padding: 40px 6vw 80px;
+        }
+
+        .poster-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-banner {
+          min-height: 240px;
+        }
+
+        .logo {
+          font-size: 1.6rem;
+        }
+
+        .logo-a {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo" aria-label="AMMA Театр">
+        <span class="logo-a">A</span><span class="logo-mm">MM</span><span class="logo-a">A</span>
+        <span class="logo-text">Театр</span>
+      </div>
+      <p class="logo-tagline">«Настоящий театр»</p>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-info">
+          <h1>AMMA Театр</h1>
+          <h2>Настоящий театр</h2>
+          <a href="#poster" class="primary-button">Купить билет</a>
+        </div>
+        <div class="hero-banner" role="img" aria-label="Спектакль на сцене"></div>
+      </section>
+
+      <section class="poster" id="poster">
+        <div class="section-heading">
+          <h2>Ближайшие спектакли</h2>
+          <p>Премьеры сезона <span id="season-year">2026</span>.</p>
+        </div>
+        <div class="poster-grid" id="poster-list"></div>
+      </section>
+
+      <section class="info" id="info">
+        <div class="section-heading">
+          <h2>Контакты</h2>
+          <p>Свяжитесь с нами и следите за новыми премьерами.</p>
+        </div>
+        <div class="info-grid">
+          <div>
+            <p>Email: <a href="mailto:hello@amma-theatre.ru">hello@amma-theatre.ru</a></p>
+            <p>Телефон: <a href="tel:+74950000000">+7 (495) 000-00-00</a></p>
+          </div>
+          <div>
+            <p>Соцсети: <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a></p>
+            <p><a href="https://t.me" target="_blank" rel="noreferrer">Telegram</a></p>
+            <p><a href="https://vk.com" target="_blank" rel="noreferrer">VK</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust" id="trust">
+        <div class="section-heading">
+          <h2>Почему нам доверяют</h2>
+          <p>Лица, которые создают спектакли, и отзывы зрителей.</p>
+        </div>
+        <div class="trust-grid">
+          <article class="trust-card">
+            <img src="data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22360%22 height=%22280%22><rect width=%22360%22 height=%22280%22 fill=%22%23141418%22/><circle cx=%22180%22 cy=%22120%22 r=%2270%22 fill=%22%23d7b26d%22 opacity=%220.5%22/><rect x=%2290%22 y=%22180%22 width=%22180%22 height=%2270%22 fill=%22%230b0b0c%22 opacity=%220.7%22/></svg>" alt="Актриса AMMA Театр" />
+            <h3>Актёры</h3>
+            <p>Труппы и приглашённые артисты с фестивальным опытом.</p>
+          </article>
+          <article class="trust-card">
+            <img src="data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22360%22 height=%22280%22><rect width=%22360%22 height=%22280%22 fill=%22%23141418%22/><rect x=%2270%22 y=%2260%22 width=%22220%22 height=%22140%22 fill=%22%23d7b26d%22 opacity=%220.35%22/><rect x=%22110%22 y=%22100%22 width=%22140%22 height=%22140%22 fill=%22%230b0b0c%22 opacity=%220.8%22/></svg>" alt="Актёр AMMA Театр" />
+            <h3>Площадки</h3>
+            <p>Камерные и большие сцены с точной акустикой.</p>
+          </article>
+          <article class="trust-card">
+            <img src="data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22360%22 height=%22280%22><rect width=%22360%22 height=%22280%22 fill=%22%23141418%22/><circle cx=%22100%22 cy=%22140%22 r=%2260%22 fill=%22%23d7b26d%22 opacity=%220.4%22/><circle cx=%22260%22 cy=%22140%22 r=%2260%22 fill=%22%23f5f5f5%22 opacity=%220.15%22/></svg>" alt="Зрители AMMA Театр" />
+            <h3>Отзывы</h3>
+            <p>«Сдержанная форма и максимальная честность — редкое сочетание».</p>
+          </article>
+        </div>
+        <div class="review-grid">
+          <article class="review-card">
+            <p>«После спектакля невозможно молчать. Очень точный театр.»</p>
+            <span>Алена К.</span>
+          </article>
+          <article class="review-card">
+            <p>«Взрослая драматургия, сильная актерская работа и тишина, которая держит.»</p>
+            <span>Максим И.</span>
+          </article>
+          <article class="review-card">
+            <p>«Самый честный разговор о человеке, который я видел на сцене.»</p>
+            <span>Елена С.</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div>
+        <h3>AMMA Театр</h3>
+        <p>Москва · камерные сцены и гастроли по стране</p>
+      </div>
+      <div>
+        <p>Сезон <span id="season-year-footer">2026</span></p>
+        <p>Настоящий театр</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
