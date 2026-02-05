@@ -1,15 +1,4 @@
 const posterTrack = document.getElementById("poster-track");
-const featuredTitles = [
-  "мой бедный марат",
-  "окна город любовь",
-  "примадонны",
-];
-
-const normalizeTitle = (title) =>
-  (title || "")
-    .toLowerCase()
-    .replace(/[^\p{L}\p{N}]+/gu, " ")
-    .trim();
 const seasonYear = document.getElementById("season-year");
 const seasonYearFooter = document.getElementById("season-year-footer");
 
@@ -71,10 +60,7 @@ const fetchShows = async () => {
       throw new Error("Shows fetch failed");
     }
     const payload = await response.json();
-    const shows = (payload.data || []).filter((show) => {
-      const title = normalizeTitle(show.title);
-      return featuredTitles.some((item) => title.includes(item));
-    });
+    const shows = payload.data || [];
     if (!Array.isArray(shows) || shows.length === 0) {
       throw new Error("No shows returned");
     }
