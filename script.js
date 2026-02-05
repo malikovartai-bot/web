@@ -1,4 +1,9 @@
 const posterTrack = document.getElementById("poster-track");
+const featuredTitles = [
+  "мой бедный марат",
+  "окна. город. любовь",
+  "примадонны",
+];
 const seasonYear = document.getElementById("season-year");
 const seasonYearFooter = document.getElementById("season-year-footer");
 
@@ -60,7 +65,10 @@ const fetchShows = async () => {
       throw new Error("Shows fetch failed");
     }
     const payload = await response.json();
-    const shows = payload.data || [];
+    const shows = (payload.data || []).filter((show) => {
+      const title = (show.title || "").toLowerCase().trim();
+      return featuredTitles.includes(title);
+    });
     if (!Array.isArray(shows) || shows.length === 0) {
       throw new Error("No shows returned");
     }
