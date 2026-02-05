@@ -19,17 +19,17 @@ const posterShows = [
   {
     title: "Мой бедный Марат",
     venue: "Камерная сцена на Арбате",
-    date: "12 февраля",
-    time: "19:30",
+    date: "20 февраля",
+    time: "18:00",
     image:
       "https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=900&q=80",
     widgetUrl: "https://iframeab-pre2514.intickets.ru/",
   },
   {
-    title: "Окна. Город. Любовь",
+    title: "Окна. Город. Любовь...",
     venue: "Сцена на Таганке",
-    date: "18 февраля",
-    time: "20:00",
+    date: "7 февраля",
+    time: "19:00",
     image:
       "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=80",
     widgetUrl: "https://iframeab-pre2514.intickets.ru/",
