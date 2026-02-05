@@ -236,6 +236,17 @@
         color: var(--gold);
       }
 
+      .poster-error {
+        margin-top: 16px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        border: 1px dashed rgba(255, 255, 255, 0.2);
+        color: var(--muted);
+        font-size: 0.9rem;
+        display: none;
+        word-break: break-word;
+      }
+
       .trust-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -340,6 +351,7 @@
           <div class="poster-track" id="poster-track"></div>
           <button class="carousel-control next" aria-label="Вперед">→</button>
         </div>
+        <div class="poster-error" id="poster-error" aria-live="polite"></div>
       </section>
 
       <section class="info" id="info">

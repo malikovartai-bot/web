@@ -1,4 +1,5 @@
 const posterTrack = document.getElementById("poster-track");
+const posterError = document.getElementById("poster-error");
 const seasonYear = document.getElementById("season-year");
 const seasonYearFooter = document.getElementById("season-year-footer");
 
@@ -17,6 +18,10 @@ const placeholderImage =
 
 const renderShows = (shows) => {
   if (!posterTrack) return;
+  if (posterError) {
+    posterError.textContent = "";
+    posterError.style.display = "none";
+  }
   if (!Array.isArray(shows) || shows.length === 0) {
     posterTrack.innerHTML = `
       <article class="poster-card">
@@ -56,10 +61,12 @@ const renderShows = (shows) => {
 const fetchShows = async () => {
   try {
     const response = await fetch("/api/intickets/shows?closed=0");
+    let payload;
     if (!response.ok) {
-      throw new Error("Shows fetch failed");
+      const text = await response.text();
+      throw new Error(`HTTP ${response.status}: ${text}`);
     }
-    const payload = await response.json();
+    payload = await response.json();
     const shows = payload.data || [];
     if (!Array.isArray(shows) || shows.length === 0) {
       throw new Error("No shows returned");
@@ -67,6 +74,13 @@ const fetchShows = async () => {
     renderShows(shows);
   } catch (error) {
     console.error("Intickets shows load failed:", error);
+    if (posterError) {
+      posterError.textContent =
+        "Ошибка загрузки афиши: " +
+        (error?.message || "неизвестная ошибка") +
+        ". Скопируйте этот текст и отправьте.";
+      posterError.style.display = "block";
+    }
     renderShows([]);
   }
 };
