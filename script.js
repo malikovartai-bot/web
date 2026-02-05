@@ -1,3 +1,4 @@
+
 const posterTrack = document.getElementById("poster-track");
 const seasonYear = document.getElementById("season-year");
 const seasonYearFooter = document.getElementById("season-year-footer");
@@ -71,6 +72,7 @@ const fetchShows = async () => {
 };
 
 fetchShows();
+
 
 const prevButton = document.querySelector(".carousel-control.prev");
 const nextButton = document.querySelector(".carousel-control.next");
