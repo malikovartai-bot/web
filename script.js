@@ -52,7 +52,6 @@ posterTrack.innerHTML = shows
     `
   )
   .join("");
-
 const prevButton = document.querySelector(".carousel-control.prev");
 const nextButton = document.querySelector(".carousel-control.next");
 
