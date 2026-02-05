@@ -1,3 +1,4 @@
+
 const shows = [
   {
     title: "Человек без свойств",
@@ -41,12 +42,14 @@ posterTrack.innerHTML = shows
         <div class="poster-actions">
           <a class="primary-button" href="${show.link}" target="_blank" rel="noreferrer">Купить билет</a>
           <button class="secondary-button" type="button">Подробнее</button>
+
         </div>
       </article>
     `
   )
   .join("");
 
+codex/create-website-from-scratch-based-on-amma-production.ru-isq19n
 const prevButton = document.querySelector(".carousel-control.prev");
 const nextButton = document.querySelector(".carousel-control.next");
 

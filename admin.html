@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AmmA Театр — Админ панель</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="admin-page">
+      <header class="admin-header">
+        <h1>Админ панель AmmA Театр</h1>
+        <a href="index.html" class="secondary-button">Назад на сайт</a>
+      </header>
+
+      <section class="admin-section">
+        <div class="admin-card">
+          <h2>Основной текст</h2>
+          <form id="hero-form">
+            <label>
+              Заголовок героя
+              <input type="text" name="title" required />
+            </label>
+            <label>
+              Подзаголовок
+              <textarea name="subtitle" rows="3" required></textarea>
+            </label>
+            <label>
+              Текст о театре
+              <textarea name="about" rows="3" required></textarea>
+            </label>
+            <label>
+              Текст в футере
+              <textarea name="footer" rows="2" required></textarea>
+            </label>
+            <button class="primary-button" type="submit">Сохранить</button>
+          </form>
+        </div>
+
+        <div class="admin-card">
+          <h2>Афиша</h2>
+          <form id="show-form">
+            <label>
+              Название спектакля
+              <input type="text" name="title" required />
+            </label>
+            <label>
+              Дата и время
+              <input type="text" name="date" required />
+            </label>
+            <label>
+              Место
+              <input type="text" name="place" required />
+            </label>
+            <label>
+              Описание
+              <textarea name="description" rows="3" required></textarea>
+            </label>
+            <label>
+              Тег
+              <input type="text" name="tag" required />
+            </label>
+            <label>
+              Ссылка Intickets
+              <input type="url" name="link" required />
+            </label>
+            <button class="primary-button" type="submit">Добавить спектакль</button>
+          </form>
+          <div class="admin-list" id="show-list"></div>
+        </div>
+
+        <div class="admin-card">
+          <h2>Команда</h2>
+          <form id="team-form">
+            <label>
+              Имя
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Роль
+              <input type="text" name="role" required />
+            </label>
+            <label>
+              Фото (URL)
+              <input type="text" name="photo" required />
+            </label>
+            <button class="primary-button" type="submit">Добавить участника</button>
+          </form>
+          <div class="admin-list" id="team-list"></div>
+        </div>
+      </section>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
