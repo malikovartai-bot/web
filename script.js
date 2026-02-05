@@ -1,4 +1,4 @@
-const posterTrack = document.getElementById("poster-track")
+const posterList = document.getElementById("poster-list");
 const seasonYear = document.getElementById("season-year");
 const seasonYearFooter = document.getElementById("season-year-footer");
 
@@ -46,9 +46,9 @@ const posterShows = [
 ];
 
 const renderShows = (shows) => {
-  if (!posterTrack) return;
+  if (!posterList) return;
   if (!Array.isArray(shows) || shows.length === 0) {
-    posterTrack.innerHTML = `
+    posterList.innerHTML = `
       <article class="poster-card">
         <img src="${placeholderImage}" alt="Скоро новые спектакли" />
         <span class="date">Скоро</span>
@@ -60,7 +60,7 @@ const renderShows = (shows) => {
       `;
     return;
   }
-  posterTrack.innerHTML = shows
+  posterList.innerHTML = shows
     .map((show) => {
       const image = show.image || show.images?.[0]?.url || show.images?.[0] || "";
       const date = show.date || "";
@@ -87,20 +87,3 @@ const renderShows = (shows) => {
 };
 
 renderShows(posterShows);
-
-const prevButton = document.querySelector(".carousel-control.prev");
-const nextButton = document.querySelector(".carousel-control.next");
-
-const scrollByCard = (direction) => {
-  if (!posterTrack) return;
-  const cardWidth = posterTrack.querySelector(".poster-card")?.offsetWidth || 260;
-  posterTrack.scrollBy({ left: direction * (cardWidth + 24), behavior: "smooth" });
-};
-
-if (prevButton) {
-  prevButton.addEventListener("click", () => scrollByCard(-1));
-}
-
-if (nextButton) {
-  nextButton.addEventListener("click", () => scrollByCard(1));
-}
