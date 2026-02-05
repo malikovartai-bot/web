@@ -1,0 +1,386 @@
+:root {
+  color-scheme: light;
+  --black: #0b0b0c;
+  --white: #f9f8f4;
+  --gold: #d7b26d;
+  --muted: #8e8e8e;
+  --card: #ffffff;
+  --shadow: 0 18px 40px rgba(12, 12, 12, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", "Segoe UI", sans-serif;
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 6vw;
+  background: rgba(249, 248, 244, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-nav {
+  display: flex;
+  gap: 24px;
+  font-size: 0.95rem;
+}
+
+.site-nav a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.2s ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus::after {
+  width: 100%;
+}
+
+.admin-link {
+  border: 1px solid var(--black);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  padding: 60px 6vw 120px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  min-height: 380px;
+  background: #f0ede5;
+  box-shadow: var(--shadow);
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+
+.slide {
+  min-width: 100%;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: var(--white);
+  background-size: cover;
+  background-position: center;
+}
+
+.slide h3 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.slider-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.slider-control.prev {
+  left: 16px;
+}
+
+.slider-control.next {
+  right: 16px;
+}
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hero-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.hero-info h1 {
+  font-size: clamp(2.4rem, 3vw, 3.4rem);
+  line-height: 1.1;
+}
+
+.primary-button {
+  align-self: flex-start;
+  background: var(--black);
+  color: var(--white);
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--black);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.primary-button:hover,
+.primary-button:focus {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  max-width: 620px;
+}
+
+.poster-grid,
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.poster-card,
+.team-card,
+.highlight-card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.poster-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.poster-card .date {
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.poster-card .tag {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.poster-card .poster-actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.secondary-button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--black);
+  background: transparent;
+  font-size: 0.9rem;
+}
+
+.secondary-button.gold {
+  border-color: var(--gold);
+  color: var(--black);
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.highlight-card {
+  background: var(--black);
+  color: var(--white);
+  border: none;
+}
+
+.highlight-card span {
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 16px;
+}
+
+.tickets {
+  display: flex;
+  justify-content: center;
+}
+
+.tickets-card {
+  max-width: 720px;
+  padding: 48px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(215, 178, 109, 0.18), rgba(11, 11, 12, 0.02));
+  box-shadow: var(--shadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.site-footer {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  padding: 40px 6vw;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f5f3ec;
+}
+
+.admin-page {
+  padding: 40px 6vw 80px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.admin-section {
+  margin-top: 40px;
+  display: grid;
+  gap: 20px;
+}
+
+.admin-card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.admin-card form {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.admin-card input,
+.admin-card textarea {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: inherit;
+}
+
+.admin-list {
+  display: grid;
+  gap: 16px;
+}
+
+.admin-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+}
+
+.admin-list-item button {
+  border: none;
+  background: var(--black);
+  color: var(--white);
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-slider {
+    min-height: 280px;
+  }
+
+  .slider-control {
+    width: 40px;
+    height: 40px;
+  }
+}
