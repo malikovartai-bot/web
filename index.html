@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AmmA Театр — спектакли и билеты</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo">AmmA Театр</div>
+      <nav class="site-nav">
+        <a href="#poster">Афиша</a>
+        <a href="#about">О театре</a>
+        <a href="#team">Команда</a>
+        <a href="#tickets">Билеты</a>
+        <a href="admin.html" class="admin-link">Админ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-slider" aria-live="polite">
+          <button class="slider-control prev" aria-label="Предыдущий слайд">←</button>
+          <div class="slides" id="slides"></div>
+          <button class="slider-control next" aria-label="Следующий слайд">→</button>
+        </div>
+        <div class="hero-info">
+          <p class="hero-tag">Креативный независимый театр</p>
+          <h1 id="hero-title"></h1>
+          <p id="hero-subtitle"></p>
+          <a href="#poster" class="primary-button">Смотреть афишу</a>
+        </div>
+      </section>
+
+      <section class="poster" id="poster">
+        <div class="section-heading">
+          <h2>Афиша</h2>
+          <p>Выберите спектакль и купите билеты через Intickets.</p>
+        </div>
+        <div class="poster-grid" id="poster-grid"></div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="section-heading">
+          <h2>О театре AmmA</h2>
+          <p id="about-text"></p>
+        </div>
+        <div class="about-highlights" id="about-highlights"></div>
+      </section>
+
+      <section class="team" id="team">
+        <div class="section-heading">
+          <h2>Команда</h2>
+          <p>Люди, которые создают магию на сцене.</p>
+        </div>
+        <div class="team-grid" id="team-grid"></div>
+      </section>
+
+      <section class="tickets" id="tickets">
+        <div class="tickets-card">
+          <h2>Билеты в один клик</h2>
+          <p>
+            Мы интегрированы с Intickets — покупайте билеты онлайн,
+            выбирайте места и получайте электронные билеты сразу после оплаты.
+          </p>
+          <a href="#poster" class="primary-button">Перейти к афише</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <h3>AmmA Театр</h3>
+        <p id="footer-text"></p>
+      </div>
+      <div>
+        <p>Связаться: <a href="mailto:hello@amma-theatre.ru">hello@amma-theatre.ru</a></p>
+        <p>Интеграция: Intickets</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
